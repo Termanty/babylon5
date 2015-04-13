@@ -1,5 +1,6 @@
 package ohtumini.controller;
 
+import java.util.HashMap;
 import javax.transaction.Transactional;
 import ohtumini.domain.ArticleReference;
 import ohtumini.repository.ReferenceRepository;
