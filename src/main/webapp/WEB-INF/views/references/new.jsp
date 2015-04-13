@@ -11,18 +11,22 @@
         <title>RefEnginen</title>
     </head>
     <body>
+        
         <h1>Create a New Reference</h1>
-    </body>
-    
-    <div>
+        
+        <div>
             Enter name and author of the reference:<br/>
-            
+
             <form action="/references" method="POST">
                 Name: <input type="text" name="name" id="name"/><br/>
                 Author: <input type="text" name="author" id="author"/><br/>
                 <input type="submit"/>           
             </form>
-    </div>
-    
-    
+        </div>
+        
+        <div>
+            <a href="/references">home</a>
+        </div>
+        
+    </body>
 </html>

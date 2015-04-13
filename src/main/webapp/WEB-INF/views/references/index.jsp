@@ -8,6 +8,7 @@
         <title>RefEngine</title>
     </head>
     <body>
+        
         <h1>List of references</h1>
         
         number of references: ${amount} <br/>
@@ -15,7 +16,10 @@
         <div>
             <ol>
                 <c:forEach var="reference" items="${references}">
-                    <li>${reference.name} ${reference.author}</li>
+                    <li>
+                        ${reference.name} ${reference.author}
+                        <a href="/references/${reference.id}">link</a>
+                    </li>
                 </c:forEach>
             </ol>
         </div>
@@ -23,6 +27,6 @@
         <div>
             <a href="/references/new">new</a>
         </div>
-    </body>
-                  
+        
+    </body>             
 </html>

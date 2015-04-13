@@ -7,9 +7,20 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>RefEngine</title>
     </head>
     <body>
+        
         <h1>Reference information page</h1>
+        
+        <div>
+            Name: ${reference.name} <br/>
+            Author: ${reference.author} <br/>
+        </div>
+        
+        <div>
+            <a href="/references">home</a>
+        </div>
+        
     </body>
 </html>
