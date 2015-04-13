@@ -1,7 +1,7 @@
 
-package com.babylon5.bibtextarchive;
+package ohtumini;
 
-import IO.ConsoleIO;
+import ohtumini.domain.ConsoleIO;
 import java.util.Scanner;
 
 public class main {

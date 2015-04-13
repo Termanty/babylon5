@@ -1,5 +1,5 @@
 
-package IO;
+package ohtumini.domain;
 
 import java.util.Scanner;
 

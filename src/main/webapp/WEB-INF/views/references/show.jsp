@@ -1,5 +1,5 @@
 <%-- 
-    this page will list all the references in database
+    this page will show information of reference
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -7,9 +7,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>RefEngine</title>
+        <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Reference information page</h1>
     </body>
 </html>
