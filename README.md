@@ -3,8 +3,6 @@
 
 Ohtu 2015 miniprojekti
 
-[Product backlog]( GoogleDocs https://docs.google.com/document/d/1aUFKuV2L1MvJz7-6YaWcJXsTaAgJYMG33RwxBBVjsJg/edit)
-
 [Sprint taskboard](https://docs.google.com/spreadsheets/d/18cWL5MF4xIhXkPQfHXDExwVfrHiamchV0-Lciu_JAAE/)
 
 [Product backlog](https://docs.google.com/document/d/1aUFKuV2L1MvJz7-6YaWcJXsTaAgJYMG33RwxBBVjsJg/)
