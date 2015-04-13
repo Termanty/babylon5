@@ -55,7 +55,7 @@ public class ReferenceController {
             @RequestParam String key) {
         
         ArticleReference newReference = new ArticleReference();
-        newReference.setName(title);
+        newReference.setTitle(title);
         newReference.setAuthor(author);
         newReference.setJournal(journal);
         newReference.setYear(year);

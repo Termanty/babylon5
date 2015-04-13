@@ -17,7 +17,7 @@
             <ol>
                 <c:forEach var="reference" items="${references}">
                     <li>
-                        ${reference.name} ${reference.author}
+                        ${reference.title} ${reference.author}
                         <a href="/references/${reference.id}">link</a>
                     </li>
                 </c:forEach>
