@@ -14,7 +14,7 @@
         <h1>Reference information page</h1>
         
         <div>
-            Name: ${reference.name} <br/>
+            Name: ${reference.title} <br/>
             Author: ${reference.author} <br/>
         </div>
         

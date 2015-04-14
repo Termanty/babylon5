@@ -1,5 +1,6 @@
 package ohtumini.controller;
 
+import java.util.HashMap;
 import javax.transaction.Transactional;
 import ohtumini.domain.ArticleReference;
 import ohtumini.repository.ReferenceRepository;
@@ -41,11 +42,34 @@ public class ReferenceController {
     
     @RequestMapping(method = RequestMethod.POST)
     @Transactional
-    public String create(@RequestParam String name, @RequestParam String author) {
+    public String create(
+            @RequestParam String title, 
+            @RequestParam String author, 
+            @RequestParam String journal, 
+            @RequestParam String year, 
+            @RequestParam String volume, 
+            @RequestParam String number, 
+            @RequestParam String pages, 
+            @RequestParam String month, 
+            @RequestParam String note, 
+            @RequestParam String key) {
+        
         ArticleReference newReference = new ArticleReference();
-        newReference.setName(name);
+        newReference.setTitle(title);
         newReference.setAuthor(author);
-        referenceRepository.save(newReference);
+        newReference.setJournal(journal);
+        newReference.setYear(year);
+        newReference.setVolume(volume);
+        newReference.setNumber(number);
+        newReference.setPages(pages);
+        newReference.setMonth(month);
+        newReference.setNote(note);
+        newReference.setKey(key);
+                
+        
+        
+      
+       referenceRepository.save(newReference);
         return "redirect:/references";
     }
     
