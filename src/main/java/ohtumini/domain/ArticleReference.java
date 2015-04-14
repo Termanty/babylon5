@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 @Entity
-public class ArticleReference extends NewClass{
+public class ArticleReference extends Reference{
   
 
     public String getName() {
