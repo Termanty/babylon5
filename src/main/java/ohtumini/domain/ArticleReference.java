@@ -6,12 +6,8 @@ import javax.persistence.Id;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 @Entity
-public class ArticleReference extends AbstractPersistable<Long>{
+public class ArticleReference extends NewClass{
   
-    @Column
-    private String name;
-    @Column
-    private String author;
 
     public String getName() {
         return name;
