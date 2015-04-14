@@ -14,9 +14,17 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
  * @author jelmnain
  */
 public abstract class Reference extends AbstractPersistable<Long> {
+
     @Column
-    protected String name;
+    protected String title;
     @Column
     protected String author;
-    
+    @Column
+    protected String year;
+    @Column
+    protected String month;
+    @Column
+    protected String note;
+    @Column
+    protected String key;
 }
