@@ -73,6 +73,20 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!--
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-htmlunit-driver</artifactId>
+            <version>2.45.0</version>
+            <type>jar</type>
+        </dependency>     
+        -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>2.13.0</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
  
     <build>
