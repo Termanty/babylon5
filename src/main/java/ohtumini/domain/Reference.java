@@ -1,30 +1,76 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package ohtumini.domain;
 
+import java.io.Serializable;
 import javax.persistence.Column;
-import org.springframework.data.jpa.domain.AbstractPersistable;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
 
-/**
- *
- * @author jelmnain
- */
-public abstract class Reference extends AbstractPersistable<Long> {
+@Entity
+@Inheritance
+@DiscriminatorColumn(name="REF_TYPE")
+public abstract class Reference implements Serializable {
 
-    @Column
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    Long id;
+    
     protected String title;
-    @Column
     protected String author;
-    @Column
-    protected String year;
-    @Column
-    protected String month;
-    @Column
+    protected String pubYear;
+    
     protected String note;
-    @Column
-    protected String key;
+    protected String pubKey;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getPubYear() {
+        return pubYear;
+    }
+
+    public void setPubYear(String pubYear) {
+        this.pubYear = pubYear;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public String getPubKey() {
+        return pubKey;
+    }
+
+    public void setPubKey(String pubKey) {
+        this.pubKey = pubKey;
+    }
 }

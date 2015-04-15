@@ -2,7 +2,7 @@ package ohtumini.controller;
 
 import java.util.HashMap;
 import javax.transaction.Transactional;
-import ohtumini.domain.ArticleReference;
+import ohtumini.domain.Article;
 import ohtumini.repository.ReferenceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -54,20 +54,18 @@ public class ReferenceController {
             @RequestParam String note, 
             @RequestParam String key) {
         
-        ArticleReference newReference = new ArticleReference();
+        Article newReference = new Article();
         newReference.setTitle(title);
         newReference.setAuthor(author);
         newReference.setJournal(journal);
-        newReference.setYear(year);
+        newReference.setPubYear(year);
         newReference.setVolume(volume);
         newReference.setNumber(number);
         newReference.setPages(pages);
-        newReference.setMonth(month);
+        newReference.setPubMonth(month);
         newReference.setNote(note);
-        newReference.setKey(key);
+        newReference.setPubKey(key);
                 
-        
-        
       
        referenceRepository.save(newReference);
         return "redirect:/references";
