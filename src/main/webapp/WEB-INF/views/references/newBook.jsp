@@ -12,7 +12,7 @@
     </head>
     <body>
         
-        <h1>Create a New Reference</h1>
+        <h1>Create a New Book Reference</h1>
         
         <div class="add-form">
             Enter name and author of the reference:<br/>
@@ -29,7 +29,7 @@
                     </tr>
                     <tr>
                         <td>
-                            Author: 
+                            Author / Editor: 
                         </td>
                         <td>
                             <input type="text" name="author" id="author"/>
@@ -37,7 +37,7 @@
                     </tr>
                     <tr>
                         <td>
-                            Journal:
+                            Publisher:
                         </td>
                         <td>
                             <input type="text" name="journal" id="journal" />
@@ -48,12 +48,12 @@
                             Year:
                         </td>
                         <td>
-                            <input type="text" name="year" id="number" />
+                            <input type="text" name="pubYear" id="number" />
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            Volume:
+                            Volume/Number (optional):
                         </td>
                         <td>
                             <input type="text" name="volume" id="volume">
@@ -61,18 +61,26 @@
                     </tr>
                     <tr>
                         <td>
-                            Number (optional):
+                            Series (optional):
                         </td>
                         <td>
-                            <input type="text" name="number" id="number">
+                            <input type="text" name="series" id="number">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            Pages (optional):
+                            Address (optional):
                         </td>
                         <td>
-                            <input type="text" name="pages" id="pages">
+                            <input type="text" name="address" id="pages">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Edition (optional):
+                        </td>
+                        <td>
+                            <input type="text" name="edition" id="pages">
                         </td>
                     </tr>
                     <tr>
@@ -96,7 +104,7 @@
                             Key (optional): 
                         </td>
                         <td>
-                            <input type="text" name="key" id="key">
+                            <input type="text" name="pubKey" id="key">
                         </td>
                     </tr>
                 </table>
