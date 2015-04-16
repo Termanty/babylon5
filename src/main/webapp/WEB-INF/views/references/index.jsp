@@ -25,7 +25,7 @@
         </div>
                 
         <div>
-            <a href="/references/new">new</a>
+            <a href="/references/newReference">newReference</a>
         </div>
         
     </body>             

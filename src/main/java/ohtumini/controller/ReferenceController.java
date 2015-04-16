@@ -15,67 +15,75 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
 // using Rails convention for /resources - path mapping
-
 @Controller
 @RequestMapping("references")
 public class ReferenceController {
-    
+
     @Autowired
     ReferenceRepository referenceRepository;
-    
-    
+
     @RequestMapping(method = RequestMethod.GET)
     public String index(Model model) {
         model.addAttribute("amount", referenceRepository.count());
         model.addAttribute("references", referenceRepository.findAll());
         return "/WEB-INF/views/references/index.jsp";
     }
-    
-    
-    @RequestMapping("/new")
-    public String newPage() {
-        return "/WEB-INF/views/references/new.jsp";
+
+    @RequestMapping("/newReference")
+    public String newReferencePage() {
+        return "/WEB-INF/views/references/newReference.jsp";
     }
-    
-    
+
+    @RequestMapping("/newArticle")
+    public String newArticle() {
+        return "/WEB-INF/views/references/newArticle.jsp";
+    }
+
+    @RequestMapping("/newBook")
+    public String newBook() {
+        return "/WEB-INF/views/references/newBook.jsp";
+    }
+
+    @RequestMapping("/newInproceeding")
+    public String newInproceeding() {
+        return "/WEB-INF/views/references/newInproceeding.jsp";
+    }
+
     @RequestMapping(method = RequestMethod.POST)
     @Transactional
     public String create(
-            @RequestParam String title, 
-            @RequestParam String author, 
-            @RequestParam String journal, 
-            @RequestParam String year, 
-            @RequestParam String volume, 
-            @RequestParam String number, 
-            @RequestParam String pages, 
-            @RequestParam String month, 
-            @RequestParam String note, 
-            @RequestParam String key) {
-        
+            @RequestParam String title,
+            @RequestParam String author,
+            @RequestParam String journal,
+            @RequestParam String pubYear,
+            @RequestParam String volume,
+            @RequestParam(required = false) String number,
+            @RequestParam(required = false) String pages,
+            @RequestParam(required = false) String pubMonth,
+            @RequestParam(required = false) String note,
+            @RequestParam(required = false) String pubKey) {
+
         Article newReference = new Article();
         newReference.setTitle(title);
         newReference.setAuthor(author);
         newReference.setJournal(journal);
-        newReference.setPubYear(year);
+        newReference.setPubYear(pubYear);
         newReference.setVolume(volume);
         newReference.setNumber(number);
         newReference.setPages(pages);
-        newReference.setPubMonth(month);
+        newReference.setPubMonth(pubMonth);
         newReference.setNote(note);
-        newReference.setPubKey(key);
-                
-      
-       referenceRepository.save(newReference);
-        return "redirect:/references";
+        newReference.setPubKey(pubKey);
+
+        referenceRepository.save(newReference);
+        return "redirect:/references/";
     }
-    
-    
+
     @RequestMapping(value = "{referenceID}", method = RequestMethod.GET)
     public String show(Model model, @PathVariable(value = "referenceID") Long id) {
         model.addAttribute("reference", referenceRepository.findOne(id));
         return "/WEB-INF/views/references/show.jsp";
     }
-    
+
 }
