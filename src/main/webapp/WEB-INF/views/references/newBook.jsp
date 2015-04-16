@@ -88,7 +88,7 @@
                             Month (optional):
                         </td>
                         <td>
-                            <input type="text" name="month" id="month">
+                            <input type="text" name="pubMonth" id="month">
                         </td>
                     </tr>
                     <tr>

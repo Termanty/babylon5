@@ -78,6 +78,14 @@
                     </tr>
                     <tr>
                         <td>
+                            Pages (optional):
+                        </td>
+                        <td>
+                            <input type="text" name="pages" id="pages">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
                             Address (optional):
                         </td>
                         <td>
@@ -86,23 +94,23 @@
                     </tr>
                     <tr>
                         <td>
-                            Edition (optional):
-                        </td>
-                        <td>
-                            <input type="text" name="edition" id="pages">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
                             Month (optional):
                         </td>
                         <td>
-                            <input type="text" name="month" id="month">
+                            <input type="text" name="pubMonth" id="month">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            Publisher:
+                            Organization (optional):
+                        </td>
+                        <td>
+                            <input type="text" name="organization" id="pages">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Publisher (optional):
                         </td>
                         <td>
                             <input type="text" name="journal" id="journal" />
