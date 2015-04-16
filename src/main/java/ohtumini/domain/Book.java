@@ -41,6 +41,10 @@ public class Book extends Reference{
     public void setSeries(String series) {
         this.series = series;
     }
+    
+    public void setAddress(String address){
+        this.address = address;
+    }
 
     public String getAddress() {
         return address;
@@ -52,6 +56,14 @@ public class Book extends Reference{
 
     public void setPubMonth(String pubMonth) {
         this.pubMonth = pubMonth;
+    }
+    
+    public void setEdition(String edition){
+        this.edition = edition;
+    }
+    
+    public String getEdition(){
+        return edition;
     }
 
 }

@@ -58,9 +58,13 @@ public class AddingNewReferencesToDbTest {
         book.setAuthor("Tolkien");
         book.setPubYear("2015");
         book.setPubKey("key2");
-        book.setEditor("Editer");
+        book.setEdition("Edition1");
         book.setPublisher("mina");
         book.setNote("note2");
+        book.setVolume("Volume1");
+        book.setSeries("Lotrot");
+        book.setAddress("Shire");
+        book.setPubMonth("July");
             
         refRepo.save(book);
         
@@ -74,9 +78,13 @@ public class AddingNewReferencesToDbTest {
         assertEquals("Book1", retri.getTitle());
         assertEquals("2015", retri.getPubYear());
         assertEquals("key2", retri.getPubKey());
-        assertEquals("Editer", retri.getEditor());
+        assertEquals("Edition1", retri.getEdition());
         assertEquals("mina", retri.getPublisher());
         assertEquals("note2", retri.getNote());
+        assertEquals("Volume1", retri.getVolume());
+        assertEquals("Lotrot", retri.getSeries());
+        assertEquals("Shire", retri.getAddress());
+        assertEquals("July", retri.getPubMonth());
         
     }
     
@@ -91,6 +99,12 @@ public class AddingNewReferencesToDbTest {
         inproceedings.setBookTitle("All About Dance");
         inproceedings.setPubMonth("March");
         inproceedings.setOrganisation("DanceCorp");
+        inproceedings.setEditor("JohnnyBoy");
+        inproceedings.setVolume("volume1");
+        inproceedings.setSeries("UltimateDanceSeries");
+        inproceedings.setPages("62");
+        inproceedings.setAddress("DanceLane");
+        inproceedings.setPublisher("DancePub");
         
         refRepo.save(inproceedings);
         
@@ -108,6 +122,12 @@ public class AddingNewReferencesToDbTest {
         assertEquals("All About Dance", retri.getBookTitle());
         assertEquals("March", retri.getPubMonth());
         assertEquals("DanceCorp", retri.getOrganisation());
+        assertEquals("JohnnyBoy", retri.getEditor());
+        assertEquals("volume1", retri.getVolume());
+        assertEquals("UltimateDanceSeries", retri.getSeries());
+        assertEquals("62", retri.getPages());
+        assertEquals("DanceLane", retri.getAddress());
+        assertEquals("DancePub", retri.getPublisher());
                 
     }
 
