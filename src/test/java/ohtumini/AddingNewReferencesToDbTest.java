@@ -31,6 +31,7 @@ public class AddingNewReferencesToDbTest {
         article.setPubKey("key");
         article.setJournal("sadfdas");
         article.setNote("note1");
+        article.setVolume("volume4");
         
         refRepo.save(article);
         
@@ -49,6 +50,7 @@ public class AddingNewReferencesToDbTest {
         assertEquals("key", retri.getPubKey());
         assertEquals("sadfdas", retri.getJournal());
         assertEquals("note1", retri.getNote());
+        assertEquals("volume4", retri.getVolume());
     }
     
     @Test
