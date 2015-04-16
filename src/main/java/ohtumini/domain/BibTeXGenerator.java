@@ -17,7 +17,7 @@ public class BibTeXGenerator {
                 .append(allFields.get("id")).append(",\n");
         
         for (String nameOfField : allFields.keySet()) {
-            if(allFields.get(nameOfField)==null || nameOfField.equals("referencetype")) {
+            if(allFields.get(nameOfField)==null || nameOfField.equals("referencetype") || nameOfField.equals("id") ) {
                 continue;
             }
             
