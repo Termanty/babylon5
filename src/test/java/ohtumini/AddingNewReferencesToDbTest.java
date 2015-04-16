@@ -30,15 +30,25 @@ public class AddingNewReferencesToDbTest {
         article.setNumber("1");
         article.setPubKey("key");
         article.setJournal("sadfdas");
+        article.setNote("note1");
         
         refRepo.save(article);
         
         Reference retrieved = refRepo.findByTitle("Juhuu");
         assertNotNull(retrieved);
-        assertEquals("mina", retrieved.getAuthor());
         assertEquals("ARTICLE", retrieved.getReferenceType());
+        
         Article retri = (Article)retrieved;
+        
+        assertEquals("mina", retri.getAuthor());
+        assertEquals("Juhuu", retri.getTitle());
+        assertEquals("2015", retri.getPubYear());
+        assertEquals("May", retri.getPubMonth());
         assertEquals("14", retri.getPages());
+        assertEquals("1", retri.getNumber());
+        assertEquals("key", retri.getPubKey());
+        assertEquals("sadfdas", retri.getJournal());
+        assertEquals("note1", retri.getNote());
     }
     
     @Test
@@ -48,17 +58,34 @@ public class AddingNewReferencesToDbTest {
         book.setAuthor("Tolkien");
         book.setPubYear("2015");
         book.setPubKey("key2");
-        book.setEditor("Editer");
+        book.setEdition("Edition1");
         book.setPublisher("mina");
-        
-        
+        book.setNote("note2");
+        book.setVolume("Volume1");
+        book.setSeries("Lotrot");
+        book.setAddress("Shire");
+        book.setPubMonth("July");
+            
         refRepo.save(book);
         
         Reference retrieved = refRepo.findByTitle("Book1");
         assertNotNull(retrieved);
-        assertEquals("Tolkien", retrieved.getAuthor());
         assertEquals("BOOK", retrieved.getReferenceType());
-        assertEquals("Book1", retrieved.getTitle());
+        
+        Book retri = (Book)retrieved;
+        
+        assertEquals("Tolkien", retri.getAuthor());
+        assertEquals("Book1", retri.getTitle());
+        assertEquals("2015", retri.getPubYear());
+        assertEquals("key2", retri.getPubKey());
+        assertEquals("Edition1", retri.getEdition());
+        assertEquals("mina", retri.getPublisher());
+        assertEquals("note2", retri.getNote());
+        assertEquals("Volume1", retri.getVolume());
+        assertEquals("Lotrot", retri.getSeries());
+        assertEquals("Shire", retri.getAddress());
+        assertEquals("July", retri.getPubMonth());
+        
     }
     
     @Test
@@ -69,6 +96,39 @@ public class AddingNewReferencesToDbTest {
         inproceedings.setPubYear("1876");
         inproceedings.setPubKey("key3");
         inproceedings.setNote("Note3");
+        inproceedings.setBookTitle("All About Dance");
+        inproceedings.setPubMonth("March");
+        inproceedings.setOrganisation("DanceCorp");
+        inproceedings.setEditor("JohnnyBoy");
+        inproceedings.setVolume("volume1");
+        inproceedings.setSeries("UltimateDanceSeries");
+        inproceedings.setPages("62");
+        inproceedings.setAddress("DanceLane");
+        inproceedings.setPublisher("DancePub");
+        
+        refRepo.save(inproceedings);
+        
+        Reference retrieved = refRepo.findByTitle("How To Dance Without Legs");
+        assertNotNull(retrieved);
+        assertEquals("INPROCEEDINGS", retrieved.getReferenceType());
+        
+        Inproceedings retri = (Inproceedings) retrieved;
+        
+        assertEquals("How To Dance Without Legs", retri.getTitle());
+        assertEquals("Leglez", retri.getAuthor());
+        assertEquals("1876", retri.getPubYear());
+        assertEquals("key3", retri.getPubKey());
+        assertEquals("Note3", retri.getNote());
+        assertEquals("All About Dance", retri.getBookTitle());
+        assertEquals("March", retri.getPubMonth());
+        assertEquals("DanceCorp", retri.getOrganisation());
+        assertEquals("JohnnyBoy", retri.getEditor());
+        assertEquals("volume1", retri.getVolume());
+        assertEquals("UltimateDanceSeries", retri.getSeries());
+        assertEquals("62", retri.getPages());
+        assertEquals("DanceLane", retri.getAddress());
+        assertEquals("DancePub", retri.getPublisher());
+                
     }
 
 }
