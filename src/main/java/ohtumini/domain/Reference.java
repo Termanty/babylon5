@@ -12,7 +12,6 @@ import javax.persistence.Inheritance;
 
 @Entity
 @Inheritance
-@DiscriminatorColumn(name="REF_TYPE")
 public abstract class Reference implements Serializable {
 
     @Id
@@ -25,6 +24,11 @@ public abstract class Reference implements Serializable {
     
     protected String note;
     protected String pubKey;
+    private String referenceType;
+    
+    public Reference(String referenceType){
+        this.referenceType = referenceType;
+    }
 
     public Long getId() {
         return id;
@@ -72,5 +76,8 @@ public abstract class Reference implements Serializable {
 
     public void setPubKey(String pubKey) {
         this.pubKey = pubKey;
+    }
+    public String getReferenceType(){
+        return this.referenceType;
     }
 }

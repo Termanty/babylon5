@@ -5,12 +5,15 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("INPROCEEDINGS")
 public class Inproceedings extends Reference {
     
     private String bookTitle;
     private String pubMonth;
     private String organisation;
+    
+    public Inproceedings(){
+         super("INPROCEEDINGS");
+    }
 
     public String getBookTitle() {
         return bookTitle;

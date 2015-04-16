@@ -5,11 +5,14 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("BOOK")
 public class Book extends Reference{
     
     private String publisher;
     private String editor;
+    
+    public Book(){
+         super("BOOK");
+    }
 
     public String getPublisher() {
         return publisher;

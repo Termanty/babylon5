@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ReferenceRepository extends JpaRepository<Reference, Long> {
 
-    public Article findByTitle(String title);
+    public Reference findByTitle(String title);
     public Book findByEditor(String editor);
     
     // custom queries to db will be writen here

@@ -2,9 +2,11 @@ package ohtumini;
 
 import ohtumini.domain.Article;
 import ohtumini.domain.Book;
+import ohtumini.domain.Inproceedings;
+import ohtumini.domain.Reference;
 import ohtumini.repository.ReferenceRepository;
-import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
@@ -31,10 +33,12 @@ public class AddingNewReferencesToDbTest {
         
         refRepo.save(article);
         
-        Article retrieved = refRepo.findByTitle("Juhuu");
+        Reference retrieved = refRepo.findByTitle("Juhuu");
         assertNotNull(retrieved);
         assertEquals("mina", retrieved.getAuthor());
-        assertEquals("14", retrieved.getPages());
+        assertEquals("ARTICLE", retrieved.getReferenceType());
+        Article retri = (Article)retrieved;
+        assertEquals("14", retri.getPages());
     }
     
     @Test
@@ -50,10 +54,21 @@ public class AddingNewReferencesToDbTest {
         
         refRepo.save(book);
         
-        Book retrieved = refRepo.findByEditor("Editer");
+        Reference retrieved = refRepo.findByTitle("Book1");
         assertNotNull(retrieved);
         assertEquals("Tolkien", retrieved.getAuthor());
+        assertEquals("BOOK", retrieved.getReferenceType());
         assertEquals("Book1", retrieved.getTitle());
+    }
+    
+    @Test
+    public void testSaveInproceedings(){
+        Inproceedings inproceedings = new Inproceedings();
+        inproceedings.setTitle("How To Dance Without Legs");
+        inproceedings.setAuthor("Leglez");
+        inproceedings.setPubYear("1876");
+        inproceedings.setPubKey("key3");
+        inproceedings.setNote("Note3");
     }
 
 }

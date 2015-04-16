@@ -4,7 +4,6 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("ARTICLE")
 public class Article extends Reference {
 
 
@@ -16,6 +15,10 @@ public class Article extends Reference {
     private String number;
     private String pages;
     private String pubMonth;
+
+    public Article() {
+        super("ARTICLE");
+    }
 
 
     public String getJournal() {
