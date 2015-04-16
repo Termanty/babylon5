@@ -74,12 +74,12 @@ public class Article extends Reference {
         allFields.put("pubyear", this.getPubYear());
         allFields.put("note", this.getNote());
         allFields.put("pubkey", this.getPubKey());
+        allFields.put("referencetype", this.getReferenceType());
         
+        BibTeXGenerator bg = new BibTeXGenerator();
         
-        
-        return "";
+        return bg.generateBibtex(allFields);
     }
-    
     
 
 }
