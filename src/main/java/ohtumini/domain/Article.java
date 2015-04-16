@@ -1,5 +1,6 @@
 package ohtumini.domain;
 
+import java.util.HashMap;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
@@ -56,6 +57,24 @@ public class Article extends Reference {
 
     public void setPubMonth(String pubMonth) {
         this.pubMonth = pubMonth;
+    }
+    
+    public String toBibtex() {
+        HashMap<String,String> allFields = new HashMap();
+        allFields.put("journal", this.getJournal());
+        allFields.put("volume", this.getVolume());
+        allFields.put("number", this.getNumber());
+        allFields.put("pages", this.getPages());
+        allFields.put("title", this.getTitle());
+        allFields.put("author", this.getAuthor());
+        allFields.put("id", "" + this.getId());
+        allFields.put("pubyear", this.getPubYear());
+        allFields.put("note", this.getNote());
+        allFields.put("pubkey", this.getPubKey());
+        
+        
+        
+        return "";
     }
     
     
