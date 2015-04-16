@@ -48,7 +48,7 @@
                             Year:
                         </td>
                         <td>
-                            <input type="text" name="year" id="number" />
+                            <input type="text" name="pubYear" id="number" />
                         </td>
                     </tr>
                     <tr>
@@ -80,7 +80,7 @@
                             Month (optional):
                         </td>
                         <td>
-                            <input type="text" name="month" id="month">
+                            <input type="text" name="pubMonth" id="month">
                         </td>
                     </tr>
                     <tr>
