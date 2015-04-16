@@ -1,6 +1,6 @@
 package ohtumini.domain;
 
-import javax.persistence.DiscriminatorValue;
+import java.util.HashMap;
 import javax.persistence.Entity;
 
 @Entity
@@ -91,5 +91,22 @@ public class Inproceedings extends Reference {
     public void setPublisher(String publisher) {
         this.publisher = publisher;
     }
+    
+    public String toBibtex() {
+        HashMap<String, String> allFields = new HashMap();
+        allFields.put("title", this.getTitle());
+        allFields.put("author", this.getAuthor());
+        allFields.put("id", "" + this.getId());
+        allFields.put("pubyear", this.getPubYear());
+        allFields.put("note", this.getNote());
+        allFields.put("pubkey", this.getPubKey());
+        allFields.put("referencetype", this.getReferenceType());
+        allFields.put("booktitle", this.getBookTitle());
+        allFields.put("pubmonth", this.getPubMonth());
+        allFields.put("organisation", this.getOrganisation());
 
+        BibTeXGenerator bg = new BibTeXGenerator();
+
+        return bg.generateBibtex(allFields);
+    }
 }
