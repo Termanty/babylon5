@@ -3,6 +3,8 @@ package ohtumini.controller;
 import java.util.HashMap;
 import javax.transaction.Transactional;
 import ohtumini.domain.Article;
+import ohtumini.domain.Book;
+import ohtumini.domain.Inproceedings;
 import ohtumini.repository.ReferenceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -49,20 +51,21 @@ public class ReferenceController {
         return "/WEB-INF/views/references/newInproceeding.jsp";
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value = "/newArticle.jsp", method = RequestMethod.POST)
     @Transactional
-    public String create(
-            @RequestParam String title,
-            @RequestParam String author,
-            @RequestParam String journal,
-            @RequestParam String pubYear,
-            @RequestParam String volume,
+    public String createArticle(
+            @RequestParam(required = true) String refType,
+            @RequestParam(required = true) String title,
+            @RequestParam(required = true) String author,
+            @RequestParam(required = true) String journal,
+            @RequestParam(required = true) String pubYear,
+            @RequestParam(required = true) String volume,
             @RequestParam(required = false) String number,
             @RequestParam(required = false) String pages,
             @RequestParam(required = false) String pubMonth,
             @RequestParam(required = false) String note,
             @RequestParam(required = false) String pubKey) {
-
+        
         Article newReference = new Article();
         newReference.setTitle(title);
         newReference.setAuthor(author);
@@ -78,7 +81,76 @@ public class ReferenceController {
         referenceRepository.save(newReference);
         return "redirect:/references/";
     }
+    
+    @RequestMapping(value = "/newBook.jsp", method = RequestMethod.POST)
+    @Transactional
+    public String createBook(
+            @RequestParam(required = true) String title,
+            @RequestParam(required = true) String author,
+            @RequestParam(required = true) String publisher,
+            @RequestParam(required = true) String pubYear,
+            @RequestParam(required = false) String volume,
+            @RequestParam(required = false) String series,
+            @RequestParam(required = false) String address,
+            @RequestParam(required = false) String edition,
+            @RequestParam(required = false) String pubMonth,
+            @RequestParam(required = false) String note,
+            @RequestParam(required = false) String pubKey) {
+        
+        Book newReference = new Book();
+        newReference.setTitle(title);
+        newReference.setAuthor(author);
+        newReference.setPublisher(publisher);
+        newReference.setPubYear(pubYear);
+        newReference.setVolume(volume);
+        newReference.setSeries(series);
+        newReference.setAddress(address);
+        newReference.setEdition(edition);
+        newReference.setPubMonth(pubMonth);
+        newReference.setNote(note);
+        newReference.setPubKey(pubKey);
 
+        referenceRepository.save(newReference);
+        return "redirect:/references/";
+    }
+
+    @RequestMapping(value = "/newInproceedings.jsp", method = RequestMethod.POST)
+    @Transactional
+    public String createInproceedings(
+            @RequestParam(required = true) String title,
+            @RequestParam(required = true) String author,
+            @RequestParam(required = true) String bookTitle,
+            @RequestParam(required = true) String pubYear,
+            @RequestParam(required = false) String volume,
+            @RequestParam(required = false) String publisher,
+            @RequestParam(required = false) String editor,
+            @RequestParam(required = false) String organization,
+            @RequestParam(required = false) String pages,
+            @RequestParam(required = false) String series,
+            @RequestParam(required = false) String address,
+            @RequestParam(required = false) String pubMonth,
+            @RequestParam(required = false) String note,
+            @RequestParam(required = false) String pubKey) {
+        
+        Inproceedings newReference = new Inproceedings();
+        newReference.setTitle(title);
+        newReference.setAuthor(author);
+        newReference.setBookTitle(bookTitle);
+        newReference.setPublisher(publisher);
+        newReference.setPubYear(pubYear);
+        newReference.setVolume(volume);
+        newReference.setSeries(series);
+        newReference.setAddress(address);
+        newReference.setEditor(editor);
+        newReference.setOrganisation(organization);
+        newReference.setPages(pages);
+        newReference.setPubMonth(pubMonth);
+        newReference.setNote(note);
+        newReference.setPubKey(pubKey);
+
+        referenceRepository.save(newReference);
+        return "redirect:/references/";
+    }
     @RequestMapping(value = "{referenceID}", method = RequestMethod.GET)
     public String show(Model model, @PathVariable(value = "referenceID") Long id) {
         model.addAttribute("reference", referenceRepository.findOne(id));

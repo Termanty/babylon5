@@ -15,6 +15,7 @@
 
             <form action="/references" method="POST">
                 <table>
+                    <input type="hidden" name="refType" id="refType" value="article" />
                     <tr>
                         <td>
                             Title: 
