@@ -51,10 +51,9 @@ public class ReferenceController {
         return "/WEB-INF/views/references/newInproceeding.jsp";
     }
 
-    @RequestMapping(value = "/newArticle.jsp", method = RequestMethod.POST)
+    @RequestMapping(value = "/newArticle", method = RequestMethod.POST)
     @Transactional
     public String createArticle(
-            @RequestParam(required = true) String refType,
             @RequestParam(required = true) String title,
             @RequestParam(required = true) String author,
             @RequestParam(required = true) String journal,
@@ -82,7 +81,7 @@ public class ReferenceController {
         return "redirect:/references/";
     }
     
-    @RequestMapping(value = "/newBook.jsp", method = RequestMethod.POST)
+    @RequestMapping(value = "/newBook", method = RequestMethod.POST)
     @Transactional
     public String createBook(
             @RequestParam(required = true) String title,
@@ -96,6 +95,7 @@ public class ReferenceController {
             @RequestParam(required = false) String pubMonth,
             @RequestParam(required = false) String note,
             @RequestParam(required = false) String pubKey) {
+        System.out.println("jou");
         
         Book newReference = new Book();
         newReference.setTitle(title);
@@ -114,7 +114,7 @@ public class ReferenceController {
         return "redirect:/references/";
     }
 
-    @RequestMapping(value = "/newInproceedings.jsp", method = RequestMethod.POST)
+    @RequestMapping(value = "/newInproceeding", method = RequestMethod.POST)
     @Transactional
     public String createInproceedings(
             @RequestParam(required = true) String title,
