@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-// using Rails convention for /resources - path mapping
 @Controller
 @RequestMapping("references")
 public class ReferenceController {

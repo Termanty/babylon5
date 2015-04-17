@@ -13,6 +13,6 @@ public class DefaultController {
  
     @RequestMapping("*")
     public String handleDefault() {
-        return "/WEB-INF/views/references/index.jsp";
+        return "redirect: /references";
     }
 }

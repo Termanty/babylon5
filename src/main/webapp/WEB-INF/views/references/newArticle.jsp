@@ -1,9 +1,5 @@
-<%-- 
-    In this page user can create new reference
---%>
-
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -56,7 +52,7 @@
                             Volume:
                         </td>
                         <td>
-                            <input type="text" name="volume" id="volume">
+                            <input type="text" name="volume" id="volume" />
                         </td>
                     </tr>
                     <tr>
@@ -64,7 +60,7 @@
                             Number (optional):
                         </td>
                         <td>
-                            <input type="text" name="number" id="number">
+                            <input type="text" name="number" id="number" />
                         </td>
                     </tr>
                     <tr>
@@ -72,7 +68,7 @@
                             Pages (optional):
                         </td>
                         <td>
-                            <input type="text" name="pages" id="pages">
+                            <input type="text" name="pages" id="pages" />
                         </td>
                     </tr>
                     <tr>
@@ -80,7 +76,7 @@
                             Month (optional):
                         </td>
                         <td>
-                            <input type="text" name="pubMonth" id="month">
+                            <input type="text" name="pubMonth" id="month" />
                         </td>
                     </tr>
                     <tr>
@@ -88,7 +84,7 @@
                             Note (optional):
                         </td>
                         <td>
-                            <input type="text" name="note" id="note">
+                            <input type="text" name="note" id="note" />
                         </td>
                     </tr>
                     <tr>
@@ -96,7 +92,7 @@
                             Key (optional): 
                         </td>
                         <td>
-                            <input type="text" name="key" id="key">
+                            <input type="text" name="key" id="key" />
                         </td>
                     </tr>
                 </table>

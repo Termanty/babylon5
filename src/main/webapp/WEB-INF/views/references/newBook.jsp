@@ -1,9 +1,5 @@
-<%-- 
-    In this page user can create new reference
---%>
-
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -56,7 +52,7 @@
                             Volume/Number (optional):
                         </td>
                         <td>
-                            <input type="text" name="volume" id="volume">
+                            <input type="text" name="volume" id="volume" />
                         </td>
                     </tr>
                     <tr>
@@ -64,7 +60,7 @@
                             Series (optional):
                         </td>
                         <td>
-                            <input type="text" name="series" id="number">
+                            <input type="text" name="series" id="number" />
                         </td>
                     </tr>
                     <tr>
@@ -72,7 +68,7 @@
                             Address (optional):
                         </td>
                         <td>
-                            <input type="text" name="address" id="pages">
+                            <input type="text" name="address" id="pages" />
                         </td>
                     </tr>
                     <tr>
@@ -80,7 +76,7 @@
                             Edition (optional):
                         </td>
                         <td>
-                            <input type="text" name="edition" id="pages">
+                            <input type="text" name="edition" id="pages" />
                         </td>
                     </tr>
                     <tr>
@@ -88,7 +84,7 @@
                             Month (optional):
                         </td>
                         <td>
-                            <input type="text" name="pubMonth" id="month">
+                            <input type="text" name="pubMonth" id="month" />
                         </td>
                     </tr>
                     <tr>
@@ -96,7 +92,7 @@
                             Note (optional):
                         </td>
                         <td>
-                            <input type="text" name="note" id="note">
+                            <input type="text" name="note" id="note" />
                         </td>
                     </tr>
                     <tr>
@@ -104,7 +100,7 @@
                             Key (optional): 
                         </td>
                         <td>
-                            <input type="text" name="pubKey" id="key">
+                            <input type="text" name="pubKey" id="key" />
                         </td>
                     </tr>
                 </table>
