@@ -95,7 +95,6 @@ public class ReferenceController {
             @RequestParam(required = false) String pubMonth,
             @RequestParam(required = false) String note,
             @RequestParam(required = false) String pubKey) {
-        System.out.println("jou");
         
         Book newReference = new Book();
         newReference.setTitle(title);
