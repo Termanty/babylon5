@@ -13,8 +13,9 @@
         <div class="add-form">
             Enter name and author of the reference:<br/>
 
-            <form action="/references" method="POST">
+            <form action="/references/newArticle" method="POST">
                 <table>
+                    <!--<input type="hidden" name="refType" id="refType" value="article" />-->
                     <tr>
                         <td>
                             Title: 
@@ -44,7 +45,7 @@
                             Year:
                         </td>
                         <td>
-                            <input type="text" name="pubYear" id="number" />
+                            <input type="text" name="pubYear" id="pubYear" />
                         </td>
                     </tr>
                     <tr>
@@ -76,7 +77,7 @@
                             Month (optional):
                         </td>
                         <td>
-                            <input type="text" name="pubMonth" id="month" />
+                            <input type="text" name="pubMonth" id="pubMonth" />
                         </td>
                     </tr>
                     <tr>

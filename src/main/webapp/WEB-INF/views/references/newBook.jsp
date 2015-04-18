@@ -13,7 +13,7 @@
         <div class="add-form">
             Enter name and author of the reference:<br/>
 
-            <form action="/references" method="POST">
+            <form action="/references/newBook" method="POST">
                 <table>
                     <tr>
                         <td>
@@ -36,7 +36,7 @@
                             Publisher:
                         </td>
                         <td>
-                            <input type="text" name="journal" id="journal" />
+                            <input type="text" name="publisher" id="publisher" />
                         </td>
                     </tr>
                     <tr>
@@ -44,7 +44,7 @@
                             Year:
                         </td>
                         <td>
-                            <input type="text" name="pubYear" id="number" />
+                            <input type="text" name="pubYear" id="pubYear" />
                         </td>
                     </tr>
                     <tr>
@@ -60,7 +60,7 @@
                             Series (optional):
                         </td>
                         <td>
-                            <input type="text" name="series" id="number" />
+                            <input type="text" name="series" id="series" />
                         </td>
                     </tr>
                     <tr>
@@ -68,7 +68,7 @@
                             Address (optional):
                         </td>
                         <td>
-                            <input type="text" name="address" id="pages" />
+                            <input type="text" name="address" id="address" />
                         </td>
                     </tr>
                     <tr>
@@ -76,7 +76,7 @@
                             Edition (optional):
                         </td>
                         <td>
-                            <input type="text" name="edition" id="pages" />
+                            <input type="text" name="edition" id="edition" />
                         </td>
                     </tr>
                     <tr>

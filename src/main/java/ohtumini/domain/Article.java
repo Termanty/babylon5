@@ -3,7 +3,6 @@ package ohtumini.domain;
 import java.util.HashMap;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-
 @Entity
 public class Article extends Reference {
 

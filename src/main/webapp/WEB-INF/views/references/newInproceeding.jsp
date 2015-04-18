@@ -13,7 +13,7 @@
         <div class="add-form">
             Enter name and author of the reference:<br/>
 
-            <form action="/references" method="POST">
+            <form action="/references/newInproceeding" method="POST">
                 <table>
                     <tr>
                         <td>
@@ -36,7 +36,7 @@
                             Booktitle: 
                         </td>
                         <td>
-                            <input type="text" name="bookTitle" id="title"/>
+                            <input type="text" name="bookTitle" id="bookTitle"/>
                         </td>
                     </tr>
                     <tr>
@@ -44,7 +44,7 @@
                             Year:
                         </td>
                         <td>
-                            <input type="text" name="pubYear" id="number" />
+                            <input type="text" name="pubYear" id="pubYear" />
                         </td>
                     </tr>
                     <tr>
@@ -52,7 +52,7 @@
                             Editor (optional):
                         </td>
                         <td>
-                            <input type="text" name="editor" id="number" />
+                            <input type="text" name="editor" id="editor" />
                         </td>
                     </tr>
                     <tr>
@@ -68,7 +68,7 @@
                             Series (optional):
                         </td>
                         <td>
-                            <input type="text" name="series" id="number" />
+                            <input type="text" name="series" id="series" />
                         </td>
                     </tr>
                     <tr>
@@ -84,7 +84,7 @@
                             Address (optional):
                         </td>
                         <td>
-                            <input type="text" name="address" id="pages" />
+                            <input type="text" name="address" id="address" />
                         </td>
                     </tr>
                     <tr>
@@ -92,7 +92,7 @@
                             Month (optional):
                         </td>
                         <td>
-                            <input type="text" name="pubMonth" id="month" />
+                            <input type="text" name="pubMonth" id="pubMonth" />
                         </td>
                     </tr>
                     <tr>
@@ -100,7 +100,7 @@
                             Organization (optional):
                         </td>
                         <td>
-                            <input type="text" name="organization" id="pages" />
+                            <input type="text" name="organization" id="organisation" />
                         </td>
                     </tr>
                     <tr>
@@ -108,7 +108,7 @@
                             Publisher (optional):
                         </td>
                         <td>
-                            <input type="text" name="journal" id="journal" />
+                            <input type="text" name="publisher" id="publisher" />
                         </td>
                     </tr>
                     
@@ -126,7 +126,7 @@
                             Key (optional): 
                         </td>
                         <td>
-                            <input type="text" name="pubKey" id="key" />
+                            <input type="text" name="pubKey" id="pubKey" />
                         </td>
                     </tr>
                 </table>
