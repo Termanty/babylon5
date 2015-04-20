@@ -26,7 +26,8 @@
         </div>
                 
         <div>
-            <a href="/references/newReference">newReference</a>
+            <a href="/references/newReference">newReference</a> |
+            <a href="/references/bibtex">bibtex</a>   
         </div>
         
     </body>             

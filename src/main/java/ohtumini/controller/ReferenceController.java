@@ -1,18 +1,17 @@
 package ohtumini.controller;
 
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 import javax.transaction.Transactional;
 import ohtumini.domain.Article;
 import ohtumini.domain.Book;
 import ohtumini.domain.Inproceedings;
+import ohtumini.domain.Reference;
 import ohtumini.repository.ReferenceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -150,10 +149,43 @@ public class ReferenceController {
         referenceRepository.save(newReference);
         return "redirect:/references/";
     }
+    
+    
     @RequestMapping(value = "{referenceID}", method = RequestMethod.GET)
     public String show(Model model, @PathVariable(value = "referenceID") Long id) {
         model.addAttribute("reference", referenceRepository.findOne(id));
         return "/WEB-INF/views/references/show.jsp";
+    }
+    
+    
+    @RequestMapping(value = "bibtex", method = RequestMethod.GET)
+    public String createBibtex(Model model) {
+        List<Reference> references = referenceRepository.findAll();
+        List<String> referencesInBibtex = new ArrayList<>();
+        
+        for (Reference reference : references) {
+            referencesInBibtex.add(getBibtexFormat(reference));
+        }
+        model.addAttribute("references", referencesInBibtex);
+     
+        return "/WEB-INF/views/references/bibtex.jsp";
+    }
+    
+    private String getBibtexFormat(Reference ref) {
+        String type = ref.getReferenceType();
+        if (type.equals("ARTICLE")) {
+                Article article = (Article) ref;
+                return article.toBibtex();
+        }
+        if (type.equals("BOOK")) {
+            Book book = (Book) ref;
+                return book.toBibtex();
+        }
+        if (type.equals("INPROCEEDINGS")) {
+            Inproceedings inproceedings = (Inproceedings) ref;
+                return inproceedings.toBibtex();
+        }
+        return "";
     }
 
 }
