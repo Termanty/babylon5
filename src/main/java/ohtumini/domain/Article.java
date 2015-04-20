@@ -74,6 +74,7 @@ public class Article extends Reference {
         allFields.put("note", this.getNote());
         allFields.put("pubkey", this.getPubKey());
         allFields.put("referencetype", this.getReferenceType());
+        allFields.put("pubmonth", this.pubMonth);
         
         BibTeXGenerator bg = new BibTeXGenerator();
         

@@ -104,6 +104,12 @@ public class Inproceedings extends Reference {
         allFields.put("booktitle", this.getBookTitle());
         allFields.put("pubmonth", this.getPubMonth());
         allFields.put("organisation", this.getOrganisation());
+        allFields.put("editor", this.editor);
+        allFields.put("publisher", this.publisher);
+        allFields.put("volume", this.volume);
+        allFields.put("series", this.series);
+        allFields.put("pages", this.pages);
+        allFields.put("address", this.address);
 
         BibTeXGenerator bg = new BibTeXGenerator();
 
