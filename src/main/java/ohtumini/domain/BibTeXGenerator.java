@@ -17,9 +17,13 @@ public class BibTeXGenerator {
                 .append(allFields.get("id")).append(",\n");
         
         for (String nameOfField : allFields.keySet()) {
-            if(allFields.get(nameOfField)==null || nameOfField.equals("referencetype") || nameOfField.equals("id") ) {
+            if(allFields.get(nameOfField)==null
+                    || allFields.get(nameOfField).equals("")
+                    || nameOfField.equals("referencetype") 
+                    || nameOfField.equals("id") ) {
                 continue;
             }
+
             
             sb.append(nameOfField).append(" = {").append(fixSpecialCharacters(allFields.get(nameOfField))).append("},\n");
         }
