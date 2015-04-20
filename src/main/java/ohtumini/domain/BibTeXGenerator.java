@@ -25,7 +25,7 @@ public class BibTeXGenerator {
         }
         
         sb.append("}");
-        
+        System.out.println(sb);
         return sb.toString();
     }
     

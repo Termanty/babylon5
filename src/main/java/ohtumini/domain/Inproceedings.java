@@ -2,10 +2,11 @@ package ohtumini.domain;
 
 import java.util.HashMap;
 import javax.persistence.Entity;
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 public class Inproceedings extends Reference {
-
+    @NotBlank
     private String bookTitle;
     private String editor;
     private String volume;

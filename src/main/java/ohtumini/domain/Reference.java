@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Inheritance
@@ -18,8 +19,11 @@ public abstract class Reference implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
     
+    @NotBlank
     protected String title;
+    @NotBlank
     protected String author;
+    @NotBlank
     protected String pubYear;
     
     protected String note;

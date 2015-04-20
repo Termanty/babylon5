@@ -3,14 +3,16 @@ package ohtumini.domain;
 import java.util.HashMap;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import org.hibernate.validator.constraints.NotBlank;
+
 @Entity
 public class Article extends Reference {
 
-
   //  private String[] orderOfFields = {"author", "title", "journal", "year", "volume", "number", "pages", "month", "note", "key"};
-  //  private String[] requiredFields = {"author", "title", "journal", "year", "volume"};
-
+    //  private String[] requiredFields = {"author", "title", "journal", "year", "volume"};
+    @NotBlank
     private String journal;
+    @NotBlank
     private String volume;
     private String number;
     private String pages;
@@ -19,7 +21,6 @@ public class Article extends Reference {
     public Article() {
         super("ARTICLE");
     }
-
 
     public String getJournal() {
         return journal;
@@ -40,17 +41,17 @@ public class Article extends Reference {
     public void setJournal(String journal) {
         this.journal = journal;
     }
-    
+
     public void setVolume(String volume) {
-        this.volume=volume;
+        this.volume = volume;
     }
 
     public void setNumber(String number) {
-        this.number=number;
+        this.number = number;
     }
 
     public void setPages(String pages) {
-        this.pages=pages;
+        this.pages = pages;
     }
 
     public String getPubMonth() {
@@ -60,9 +61,9 @@ public class Article extends Reference {
     public void setPubMonth(String pubMonth) {
         this.pubMonth = pubMonth;
     }
-    
+
     public String toBibtex() {
-        HashMap<String,String> allFields = new HashMap();
+        HashMap<String, String> allFields = new HashMap();
         allFields.put("journal", this.getJournal());
         allFields.put("volume", this.getVolume());
         allFields.put("number", this.getNumber());
@@ -75,11 +76,10 @@ public class Article extends Reference {
         allFields.put("pubkey", this.getPubKey());
         allFields.put("referencetype", this.getReferenceType());
         allFields.put("pubmonth", this.pubMonth);
-        
+
         BibTeXGenerator bg = new BibTeXGenerator();
-        
+
         return bg.generateBibtex(allFields);
     }
-    
 
 }
