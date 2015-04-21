@@ -1,23 +1,14 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="header.jsp" %>
+        
+<h2 class="page-title">Reference information page</h2>
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>RefEngine</title>
-    </head>
-    <body>
-        
-        <h1>Reference information page</h1>
-        
-        <div>
-            Name: ${reference.title} <br/>
-            Author: ${reference.author} <br/>
-        </div>
-        
-        <div>
-            <a href="/references">home</a>
-        </div>
-        
-    </body>
-</html>
+<div>
+    Name: ${reference.title} <br/>
+    Author: ${reference.author} <br/>
+</div>
+
+<div>
+    <a href="/references">home</a>
+</div>
+
+<%@include file="footer.jsp"%>
