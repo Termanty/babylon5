@@ -1,20 +1,13 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="header.jsp" %>
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>RefEnginen</title>
-    </head>
-    <body>
-        
-        <h1>Choose Reference Type to create</h1>
-        
-        <ul>
-            <li><a href="newArticle">Article</a></li>
-            <li><a href="newBook">Book</a></li>
-            <li><a href="newInproceeding">Inproceeding</a></li>
 
-        </ul>
-    </body>
-</html>
+<h2 class="page-title">Choose Reference Type to create</h2>
+
+<ul>
+    <li><a href="newArticle">Article</a></li>
+    <li><a href="newBook">Book</a></li>
+    <li><a href="newInproceeding">Inproceeding</a></li>
+
+</ul>
+
+<%@include file="footer.jsp"%>

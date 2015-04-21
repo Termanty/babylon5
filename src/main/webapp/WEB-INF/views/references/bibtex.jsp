@@ -1,20 +1,10 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>RefEngine</title>
-    </head>
-    <body>
+<%@include file="header.jsp" %>
         
-        <a href="/references">home</a>
-        <h1>References in BibTex Format</h1>
+<a href="/references">home</a>
+<h2 class="page-title">References in BibTex Format</h2>
 
-        <c:forEach var="reference" items="${references}">
-            <pre>${reference}</pre>
-        </c:forEach>
+<c:forEach var="reference" items="${references}">
+    <pre>${reference}</pre>
+</c:forEach>
 
-    </body>
-</html>
+<%@include file="footer.jsp"%>
