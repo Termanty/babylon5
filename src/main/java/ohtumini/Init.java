@@ -4,13 +4,17 @@ import ohtumini.domain.Article;
 import ohtumini.domain.Book;
 import ohtumini.domain.Inproceedings;
 import ohtumini.repository.ReferenceRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class Init {
 
-    Book book;
-    Article article;
-    Inproceedings inproceeding;
-    ReferenceRepository refrep;
+    
+    private Book book;
+    private Article article;
+    private Inproceedings inproceeding;
+    
+    @Autowired
+    private ReferenceRepository refrep;
 
     public Init() {
         book = new Book();
