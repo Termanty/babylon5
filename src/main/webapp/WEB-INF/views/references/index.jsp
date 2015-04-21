@@ -20,6 +20,7 @@
                     <th>Title</th>
                     <th>Author</th>
                     <th>Link</th>
+                    <th>Delete</th>
                 </tr>
                 <c:forEach var="reference" items="${references}">
                     <tr>
@@ -31,6 +32,9 @@
                         </td>
                         <td>
                             <a href="/references/${reference.id}">link</a>
+                        </td>
+                        <td>
+                            <a href="/references/${reference.id}/delete">delete</a>
                         </td>
                     </tr>
                 </c:forEach>

@@ -160,6 +160,13 @@ public class ReferenceController {
         return "/WEB-INF/views/references/show.jsp";
     }
     
+    @RequestMapping(value = "{referenceID}/delete", method = RequestMethod.GET)
+    public String delete(@PathVariable(value = "referenceID") Long id) {
+        referenceRepository.delete(id);
+        return "redirect:/references/";
+    }
+    
+    
     
     @RequestMapping(value = "bibtex", method = RequestMethod.GET)
     public String createBibtex(Model model) {
