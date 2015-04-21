@@ -12,19 +12,31 @@
         
         <h1>List of references</h1>
         
-        number of references: ${amount} <br/>
+        number of references: ${amount} <br/></br>
         
         <div>
-            <ol>
+            <table>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Link</th>
+                </tr>
                 <c:forEach var="reference" items="${references}">
-                    <li>
-                        ${reference.title} ${reference.author}
-                        <a href="/references/${reference.id}">link</a>
-                    </li>
+                    <tr>
+                        <td>
+                            ${reference.title} 
+                        </td>
+                        <td>
+                            ${reference.author}
+                        </td>
+                        <td>
+                            <a href="/references/${reference.id}">link</a>
+                        </td>
+                    </tr>
                 </c:forEach>
-            </ol>
+            </table>
         </div>
-                
+        </br>        
         <div>
             <a href="/references/newReference">newReference</a> |
             <a href="/references/bibtex">bibtex</a>   
