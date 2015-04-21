@@ -15,11 +15,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import ohtumini.Init;
 
 @Controller
 @RequestMapping("references")
 public class ReferenceController {
-
+    
+//    Init init = new Init();
+    
     @Autowired
     ReferenceRepository referenceRepository;
 
