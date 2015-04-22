@@ -1,0 +1,30 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+
+description 'User can delete reference from database'
+
+scenario "user can go to home page ", {
+    given 'home page and list of references', {
+        driver = new HtmlUnitDriver()
+        driver.get("http://localhost:8080/references/newBook")
+        element = driver.findElement(By.name("title"))
+        element.sendKeys("Viisikko ja ilkeä täti");
+        element = driver.findElement(By.name("author"))
+        element.sendKeys("Akka Kebnekaise");
+        element = driver.findElement(By.name("pubYear"))
+        element.sendKeys("1955");
+        element.submit()
+    }
+
+    when 'user clikc delete link for reference', {
+        element = driver.findElement(By.linkText("Delete"))   
+        element.click()
+    }
+
+    then 'user will not see removed reference in the reference list', {
+        driver.getPageSource().contains("Viisikko ja ilkeä täti").shouldBe true
+    }
+}
+

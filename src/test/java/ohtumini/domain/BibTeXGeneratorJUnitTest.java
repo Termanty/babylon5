@@ -3,15 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package ohtumini.domain;
 
 import java.util.HashMap;
-import org.junit.After;
-import org.junit.AfterClass;
 import static org.junit.Assert.*;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
@@ -19,30 +15,48 @@ import org.junit.Test;
  * @author sssoinin
  */
 public class BibTeXGeneratorJUnitTest {
-    
-   private BibTeXGenerator test;
-   private HashMap<String, String> testFields;
+
+    private BibTeXGenerator test;
+    private HashMap<String, String> testFields;
+
     @Before
     public void setUp() {
-        test = new BibTeXGenerator ();
-        testFields=new HashMap();
-    
+        test = new BibTeXGenerator();
+        testFields = new HashMap();
+    }
+
+    @Test
+    public void replaceAeRight() {
+        testFields.put("referencetype", "referencetype");
+        testFields.put("pubkey", "id");
+        testFields.put("title", "ääkkoset");
+
+        assertEquals("@referencetype{id,\ntitle = {\\\"{a}\\\"{a}kkoset},\n}", test.generateBibtex(testFields));
+    }
+
+    @Test
+    public void replaceOeRight() {
+        testFields.put("referencetype", "referencetype");
+        testFields.put("pubkey", "id");
+        testFields.put("title", "öökkoset");
+
+        assertEquals("@referencetype{id,\ntitle = {\\\"{o}\\\"{o}kkoset},\n}", test.generateBibtex(testFields));
+    }
+
+    @Test
+    public void replaceAaRight() {
+        testFields.put("referencetype", "referencetype");
+        testFields.put("pubkey", "id");
+        testFields.put("title", "ååkkoset");
+
+        assertEquals("@referencetype{id,\ntitle = {\\aa\\aakkoset},\n}", test.generateBibtex(testFields));
     }
     
-   @Test
-   public void replaceAeRight(){
-       testFields.put("referencetype","referencetype");
-       testFields.put("id","id");
-       testFields.put("title", "ääkkoset");
-       
-       assertEquals("@referencetype{id,\ntitle = {\\\"{a}\\\"{a}kkoset},\n}",test.generateBibtex(testFields)) ;
-   
-   }
-   
-   
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+        @Test
+    public void putsReferencetypeAndIdInTheRightPlaces() {
+        testFields.put("referencetype", "referencetype");
+        testFields.put("pubkey", "id");
+
+        assertEquals("@referencetype{id,\n}", test.generateBibtex(testFields));
+    }
 }

@@ -14,12 +14,17 @@ public class BibTeXGenerator {
         StringBuilder sb = new StringBuilder();
         
         sb.append("@").append(allFields.get("referencetype")).append("{")
-                .append(allFields.get("id")).append(",\n");
+                .append(allFields.get("pubkey")).append(",\n");
         
         for (String nameOfField : allFields.keySet()) {
-            if(allFields.get(nameOfField)==null || nameOfField.equals("referencetype") || nameOfField.equals("id") ) {
+            if(allFields.get(nameOfField)==null
+                    || allFields.get(nameOfField).equals("")
+                    || nameOfField.equals("referencetype") 
+                    || nameOfField.equals("id")  
+                    || nameOfField.equals("pubkey")) {
                 continue;
             }
+
             
             sb.append(nameOfField).append(" = {").append(fixSpecialCharacters(allFields.get(nameOfField))).append("},\n");
         }
