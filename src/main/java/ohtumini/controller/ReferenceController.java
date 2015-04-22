@@ -3,6 +3,7 @@ package ohtumini.controller;
 import java.util.ArrayList;
 import java.util.List;
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 import ohtumini.domain.Article;
 import ohtumini.domain.Book;
 import ohtumini.domain.Inproceedings;
@@ -16,13 +17,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import ohtumini.Init;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @Controller
 @RequestMapping("references")
 public class ReferenceController {
-    
+
 //    Init init = new Init();
-    
     @Autowired
     ReferenceRepository referenceRepository;
 
@@ -66,7 +69,7 @@ public class ReferenceController {
             @RequestParam(required = false) String pubMonth,
             @RequestParam(required = false) String note,
             @RequestParam(required = false) String pubKey) {
-        
+
         Article newReference = new Article();
         newReference.setTitle(title);
         newReference.setAuthor(author);
@@ -82,7 +85,7 @@ public class ReferenceController {
         referenceRepository.save(newReference);
         return "redirect:/references/";
     }
-    
+
     @RequestMapping(value = "/newBook", method = RequestMethod.POST)
     @Transactional
     public String createBook(
@@ -97,7 +100,7 @@ public class ReferenceController {
             @RequestParam(required = false) String pubMonth,
             @RequestParam(required = false) String note,
             @RequestParam(required = false) String pubKey) {
-        
+
         Book newReference = new Book();
         newReference.setTitle(title);
         newReference.setAuthor(author);
@@ -132,7 +135,7 @@ public class ReferenceController {
             @RequestParam(required = false) String pubMonth,
             @RequestParam(required = false) String note,
             @RequestParam(required = false) String pubKey) {
-        
+
         Inproceedings newReference = new Inproceedings();
         newReference.setTitle(title);
         newReference.setAuthor(author);
@@ -152,48 +155,45 @@ public class ReferenceController {
         referenceRepository.save(newReference);
         return "redirect:/references/";
     }
-    
-    
+
     @RequestMapping(value = "{referenceID}", method = RequestMethod.GET)
     public String show(Model model, @PathVariable(value = "referenceID") Long id) {
         model.addAttribute("reference", referenceRepository.findOne(id));
         return "/WEB-INF/views/references/show.jsp";
     }
-    
+
     @RequestMapping(value = "{referenceID}/delete", method = RequestMethod.GET)
     public String delete(@PathVariable(value = "referenceID") Long id) {
         referenceRepository.delete(id);
         return "redirect:/references/";
     }
-    
-    
-    
+
     @RequestMapping(value = "bibtex", method = RequestMethod.GET)
     public String createBibtex(Model model) {
         List<Reference> references = referenceRepository.findAll();
         List<String> referencesInBibtex = new ArrayList<>();
-        
+
         for (Reference reference : references) {
             referencesInBibtex.add(getBibtexFormat(reference));
         }
         model.addAttribute("references", referencesInBibtex);
-     
+
         return "/WEB-INF/views/references/bibtex.jsp";
     }
-    
+
     private String getBibtexFormat(Reference ref) {
         String type = ref.getReferenceType();
         if (type.equals("ARTICLE")) {
-                Article article = (Article) ref;
-                return article.toBibtex();
+            Article article = (Article) ref;
+            return article.toBibtex();
         }
         if (type.equals("BOOK")) {
             Book book = (Book) ref;
-                return book.toBibtex();
+            return book.toBibtex();
         }
         if (type.equals("INPROCEEDINGS")) {
             Inproceedings inproceedings = (Inproceedings) ref;
-                return inproceedings.toBibtex();
+            return inproceedings.toBibtex();
         }
         return "";
     }

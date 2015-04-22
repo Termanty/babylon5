@@ -6,7 +6,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 public class Inproceedings extends Reference {
-    @NotBlank
+    
     private String bookTitle;
     private String editor;
     private String volume;
