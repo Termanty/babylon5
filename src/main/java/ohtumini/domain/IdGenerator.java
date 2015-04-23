@@ -15,13 +15,22 @@ public class IdGenerator {
     @Autowired
     ReferenceRepository refRep;
     
+    
+    
     public IdGenerator(ReferenceRepository refRep){
         this.refRep=refRep;
     }
     
     public String generateId (String author, String year){
+        String pubKey=author.substring(0, 3) + 
+                      year.substring(0, 4) +"0";
         
-        return "";    
+        for(int i=1;!checkUniqueness(pubKey);i++){
+           pubKey=pubKey.substring(0, 7) + i;
+            
+        }
+                      
+        return pubKey;    
     }
     
     public boolean checkUniqueness (String pubkey){
