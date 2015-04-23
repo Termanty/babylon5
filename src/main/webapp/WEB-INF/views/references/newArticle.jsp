@@ -80,21 +80,24 @@
                     <input type="text" name="note" id="note" />
                 </td>
             </tr>
+            <tr class="show-next-hidden">
+                <td>
+                </td>
+                <td>
+                    <a href="#" >Specify key</a>
+                </td>
+            </tr>
             <tr class="hidden">
                 <td>
                     Key (optional): 
                 </td>
                 <td>
-                    <input type="text" name="key" id="key" />
+                    <input type="text" name="pubKey" id="pubKey" /><br />
                 </td>
             </tr>
         </table>
         <input type="submit"/>           
     </form>
-</div>
-
-<div>
-    <a href="/references">home</a>
 </div>
         
 <%@include file="footer.jsp"%>

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import ohtumini.Init;
+import ohtumini.domain.IdGenerator;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
@@ -60,7 +61,7 @@ public class ReferenceController {
     @RequestMapping(value = "/newArticle", method = RequestMethod.POST)
     @Transactional
     public String createArticle(@Valid @ModelAttribute Article article, BindingResult br) {
-
+        article.setPubKey(checkReferenceId(article.getPubKey(), article.getAuthor(), article.getPubYear()));
         referenceRepository.save(article);
         return "redirect:/references/";
     }
@@ -68,7 +69,7 @@ public class ReferenceController {
     @RequestMapping(value = "/newBook", method = RequestMethod.POST)
     @Transactional
     public String createBook(@Valid @ModelAttribute Book book, BindingResult br) {
-
+        book.setPubKey(checkReferenceId(book.getPubKey(), book.getAuthor(), book.getPubYear()));
         referenceRepository.save(book);
         return "redirect:/references/";
     }
@@ -76,7 +77,7 @@ public class ReferenceController {
     @RequestMapping(value = "/newInproceeding", method = RequestMethod.POST)
     @Transactional
     public String createInproceedings(@Valid @ModelAttribute Inproceedings inpro, BindingResult br) {
-
+        inpro.setPubKey(checkReferenceId(inpro.getPubKey(), inpro.getAuthor(), inpro.getPubYear()));
         referenceRepository.save(inpro);
         return "redirect:/references/";
     }
@@ -121,6 +122,19 @@ public class ReferenceController {
             return inproceedings.toBibtex();
         }
         return "";
+    }
+
+
+    private String checkReferenceId(String pubKey, String author, String year) {
+        IdGenerator ig = new IdGenerator(referenceRepository);
+
+        if (pubKey == null
+                || pubKey.isEmpty()
+                || !ig.checkUniqueness(pubKey)) {
+            return ig.generateId(author, year);
+        }
+
+        return pubKey;
     }
 
 }
