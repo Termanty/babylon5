@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import ohtumini.Init;
+import ohtumini.domain.IdGenerator;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -196,6 +197,27 @@ public class ReferenceController {
             return inproceedings.toBibtex();
         }
         return "";
+    }
+
+    /**
+     * Checks if given id key is unique and generates new if necessary.
+     * 
+     * @param pubKey
+     * @param author
+     * @param year
+     * @return new unique key if given key was empty or not unique, otherwise
+     * returns given key unchanged
+     */
+    private String checkReferenceId(String pubKey, String author, String year) {
+        IdGenerator ig = new IdGenerator(referenceRepository);
+
+        if (pubKey == null
+                || pubKey.isEmpty()
+                || !ig.checkUniqueness(pubKey)) {
+            return ig.generateId(author, year);
+        }
+
+        return pubKey;
     }
 
 }
