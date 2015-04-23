@@ -80,7 +80,7 @@
                     <input type="text" name="note" id="note" />
                 </td>
             </tr>
-            <tr>
+            <tr class="hidden">
                 <td>
                     Key (optional): 
                 </td>
