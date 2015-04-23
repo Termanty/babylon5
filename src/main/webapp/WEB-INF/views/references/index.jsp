@@ -3,7 +3,7 @@
         
 <h2 class="page-title">List of references</h2>
 
-number of references: ${amount} <br/></br>
+<p id="numOfReferences">Number of references: ${amount}</p>
 
 <div>
     <table>
