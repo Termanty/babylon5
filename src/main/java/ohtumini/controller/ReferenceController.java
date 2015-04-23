@@ -61,7 +61,7 @@ public class ReferenceController {
     @RequestMapping(value = "/newArticle", method = RequestMethod.POST)
     @Transactional
     public String createArticle(@Valid @ModelAttribute Article article, BindingResult br) {
-
+        article.setPubKey(checkReferenceId(article.getPubKey(), article.getAuthor(), article.getPubYear()));
         referenceRepository.save(article);
         return "redirect:/references/";
     }
@@ -69,7 +69,7 @@ public class ReferenceController {
     @RequestMapping(value = "/newBook", method = RequestMethod.POST)
     @Transactional
     public String createBook(@Valid @ModelAttribute Book book, BindingResult br) {
-
+        book.setPubKey(checkReferenceId(book.getPubKey(), book.getAuthor(), book.getPubYear()));
         referenceRepository.save(book);
         return "redirect:/references/";
     }
@@ -77,7 +77,7 @@ public class ReferenceController {
     @RequestMapping(value = "/newInproceeding", method = RequestMethod.POST)
     @Transactional
     public String createInproceedings(@Valid @ModelAttribute Inproceedings inpro, BindingResult br) {
-
+        inpro.setPubKey(checkReferenceId(inpro.getPubKey(), inpro.getAuthor(), inpro.getPubYear()));
         referenceRepository.save(inpro);
         return "redirect:/references/";
     }
@@ -124,15 +124,7 @@ public class ReferenceController {
         return "";
     }
 
-    /**
-     * Checks if given id key is unique and generates new if necessary.
-     * 
-     * @param pubKey
-     * @param author
-     * @param year
-     * @return new unique key if given key was empty or not unique, otherwise
-     * returns given key unchanged
-     */
+
     private String checkReferenceId(String pubKey, String author, String year) {
         IdGenerator ig = new IdGenerator(referenceRepository);
 
