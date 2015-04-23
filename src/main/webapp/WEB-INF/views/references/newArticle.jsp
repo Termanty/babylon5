@@ -5,10 +5,9 @@
 <div class="add-form">
     Enter name and author of the reference:<br/>
 
-    <form action="references/newArticle" method="POST">
+    <form action="/references/newArticle" method="POST">
         
         <table>
-            <!--<input type="hidden" name="refType" id="refType" value="article" />-->
             <tr>
                 <td>
                     Title: 
@@ -16,7 +15,6 @@
                 <td>
                     <input type="text" name="title" id="title" required/>
                 </td>
-               
             </tr>
             <tr>
                 <td>

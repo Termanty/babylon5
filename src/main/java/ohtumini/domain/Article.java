@@ -1,18 +1,15 @@
 package ohtumini.domain;
 
 import java.util.HashMap;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 public class Article extends Reference {
 
   //  private String[] orderOfFields = {"author", "title", "journal", "year", "volume", "number", "pages", "month", "note", "key"};
     //  private String[] requiredFields = {"author", "title", "journal", "year", "volume"};
-    @NotBlank
+    
     private String journal;
-    @NotBlank
     private String volume;
     private String number;
     private String pages;
