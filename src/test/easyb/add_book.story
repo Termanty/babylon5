@@ -24,6 +24,82 @@ scenario "user can go to page where new article can be added to database", {
     }
 }
 
+scenario "user can't send form without title", {
+    given 'the form page', {
+        driver = new HtmlUnitDriver()
+        driver.get("http://localhost:8080/references/newBook")
+    }
+
+    when 'user have not filled the title field in the form and clicked submit', {
+        element = driver.findElement(By.name("author"))
+        element.sendKeys("J.R.R.Tolkien");
+        element.submit()
+    }
+
+    then 'user finds new reference from home page listing', {
+        driver.getPageSource().contains("number of references").shouldBe false
+    }
+}
+
+scenario "user can't send form without author", {
+    given 'the form page', {
+        driver = new HtmlUnitDriver()
+        driver.get("http://localhost:8080/references/newBook")
+    }
+
+    when 'user have not filled the author field in the form and clicked submit', {
+        element = driver.findElement(By.name("title"))
+        element.sendKeys("Lord of the Rings");
+        element.submit()
+    }
+
+    then 'user finds new reference from home page listing', {
+        driver.getPageSource().contains("number of references").shouldBe false
+    }
+}
+
+scenario "user can't send form without year", {
+    given 'the form page', {
+        driver = new HtmlUnitDriver()
+        driver.get("http://localhost:8080/references/newBook")
+    }
+
+    when 'user have not filled the year field in the form and clicked submit', {
+        element = driver.findElement(By.name("title"))
+        element.sendKeys("Lord of the Rings");
+        element = driver.findElement(By.name("author"))
+        element.sendKeys("J.R.R.Tolkien");
+        element = driver.findElement(By.name("publisher"))
+        element.sendKeys("WSOY");
+        element.submit()
+    }
+
+    then 'user finds new reference from home page listing', {
+        driver.getPageSource().contains("number of references").shouldBe false
+    }
+}
+
+scenario "user can't send form without publisher", {
+    given 'the form page', {
+        driver = new HtmlUnitDriver()
+        driver.get("http://localhost:8080/references/newBook")
+    }
+
+    when 'user have not filled the c field in the form and clicked submit', {
+        element = driver.findElement(By.name("title"))
+        element.sendKeys("Lord of the Rings");
+        element = driver.findElement(By.name("author"))
+        element.sendKeys("J.R.R.Tolkien");
+        element = driver.findElement(By.name("pubYear"))
+        element.sendKeys("1968");
+        element.submit()
+    }
+
+    then 'user finds new reference from home page listing', {
+        driver.getPageSource().contains("number of references").shouldBe false
+    }
+}
+
 scenario "user can fill the form and send it", {
     given 'the form page', {
         driver = new HtmlUnitDriver()

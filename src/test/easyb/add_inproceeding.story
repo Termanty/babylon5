@@ -24,6 +24,113 @@ scenario "user can go to page where new inproceeding can be added to database", 
     }
 }
 
+scenario "user can't send the form without title", {
+    given 'the form page', {
+        driver = new HtmlUnitDriver()
+        driver.get("http://localhost:8080/references/newInproceeding")
+    }
+
+    when 'user have not filled the title field in the form and clicked submit', {
+        element = driver.findElement(By.name("author"))
+        element.sendKeys("Vihavainen, Arto")
+        element = driver.findElement(By.name("pubYear"))
+        element.sendKeys("2001")
+        element = driver.findElement(By.name("bookTitle"))
+        element.sendKeys("Proceedings of the 42nd SIGCSE technical symposium on Computer science education");
+        element.submit()
+    }
+
+    then 'user is not passed to home page', {
+        driver.getPageSource().contains("number of references").shouldBe false
+    }
+}
+
+
+scenario "user can't send the form without author", {
+    given 'the form page', {
+        driver = new HtmlUnitDriver()
+        driver.get("http://localhost:8080/references/newInproceeding")
+    }
+
+    when 'user have not filled the author field in the form and clicked submit', {
+        element = driver.findElement(By.name("title"))
+        element.sendKeys("Extreme Apprenticeship Method in Teaching Programming for Beginners.")
+        element = driver.findElement(By.name("pubYear"))
+        element.sendKeys("2001")
+        element = driver.findElement(By.name("bookTitle"))
+        element.sendKeys("Proceedings of the 42nd SIGCSE technical symposium on Computer science education");
+        element.submit()
+    }
+
+    then 'user is not passed to home page', {
+        driver.getPageSource().contains("number of references").shouldBe false
+    }
+}
+
+scenario "user can't send the form without year", {
+    given 'the form page', {
+        driver = new HtmlUnitDriver()
+        driver.get("http://localhost:8080/references/newInproceeding")
+    }
+
+    when 'user have not filled the year field in the form and clicked submit', {
+        element = driver.findElement(By.name("title"))
+        element.sendKeys("Extreme Apprenticeship Method in Teaching Programming for Beginners.")
+        element = driver.findElement(By.name("author"))
+        element.sendKeys("Vihavainen, Arto")
+        element = driver.findElement(By.name("bookTitle"))
+        element.sendKeys("Proceedings of the 42nd SIGCSE technical symposium on Computer science education");
+        element.submit()
+    }
+
+    then 'user is not passed to home page', {
+        driver.getPageSource().contains("number of references").shouldBe false
+    }
+}
+
+scenario "user can't send the form without year", {
+    given 'the form page', {
+        driver = new HtmlUnitDriver()
+        driver.get("http://localhost:8080/references/newInproceeding")
+    }
+
+    when 'user have not filled the year field in the form and clicked submit', {
+        element = driver.findElement(By.name("title"))
+        element.sendKeys("Extreme Apprenticeship Method in Teaching Programming for Beginners.")
+        element = driver.findElement(By.name("author"))
+        element.sendKeys("Vihavainen, Arto")
+        element = driver.findElement(By.name("bookTitle"))
+        element.sendKeys("Proceedings of the 42nd SIGCSE technical symposium on Computer science education");
+        element.submit()
+    }
+
+    then 'user is not passed to home page', {
+        driver.getPageSource().contains("number of references").shouldBe false
+    }
+}
+
+
+scenario "user can't send the form without booktitle", {
+    given 'the form page', {
+        driver = new HtmlUnitDriver()
+        driver.get("http://localhost:8080/references/newInproceeding")
+    }
+
+    when 'user have not filled the booktitle field in the form and clicked submit', {
+        element = driver.findElement(By.name("title"))
+        element.sendKeys("Extreme Apprenticeship Method in Teaching Programming for Beginners.")
+        element = driver.findElement(By.name("author"))
+        element.sendKeys("Vihavainen, Arto")
+        element = driver.findElement(By.name("pubYear"))
+        element.sendKeys("2001")
+        element.submit()
+    }
+
+    then 'user is not passed to home page', {
+        driver.getPageSource().contains("number of references").shouldBe false
+    }
+}
+
 scenario "user can fill the form and send it", {
     given 'the form page', {
         driver = new HtmlUnitDriver()
