@@ -34,7 +34,7 @@ public class IdGeneratorJUnitTest {
        assertTrue(test.checkUniqueness("1234"));
     
     }
-
+    @Test
     public void checkUniquenessReturnsFalseWhenPubKeyIsNotUnique(){
         ReferenceRepository mockrefRepo = mock(ReferenceRepository.class); 
        IdGenerator test = new IdGenerator(mockrefRepo);
@@ -42,10 +42,20 @@ public class IdGeneratorJUnitTest {
         
        assertFalse(test.checkUniqueness("1234"));
     }
+    @Test
+    public void createUniquePubkeyWhenNotFoundInDatabase(){
+       ReferenceRepository mockrefRepo = mock(ReferenceRepository.class); 
+       IdGenerator test = new IdGenerator(mockrefRepo);
+       
+       assertEquals("Tol19530",test.generateId("Tolkien", "1953"));
+       
+    }
+    @Test
+    public void createUniquePubkeyWhenFoundInDatabase(){
+       ReferenceRepository mockrefRepo = mock(ReferenceRepository.class); 
+       IdGenerator test = new IdGenerator(mockrefRepo);
+       when(mockrefRepo.findByPubKey("Tol19530")).thenReturn(new Article());
+       assertEquals("Tol19531",test.generateId("Tolkien", "1953"));
+    }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
 }

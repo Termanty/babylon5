@@ -100,8 +100,4 @@
     </form>
 </div>
 
-<div>
-    <a href="/references">home</a>
-</div>
-
 <%@include file="footer.jsp"%>
