@@ -32,15 +32,19 @@ scenario "user can fill the form and send it", {
 
     when 'user have filled all fields from the form and clicked submit', {
         element = driver.findElement(By.name("title"))
-        element.sendKeys("Lord of the Rings");
+        element.sendKeys("Cognitive apprenticeship")
         element = driver.findElement(By.name("author"))
-        element.sendKeys("J.R.R.Tolkien");
+        element.sendKeys("Allan Collins")
+        element = driver.findElement(By.name("journal"))
+        element.sendKeys("American Educator")
         element = driver.findElement(By.name("pubYear"))
-        element.sendKeys("1968");
+        element.sendKeys("1991")
+        element = driver.findElement(By.name("volume"))
+        element.sendKeys("6")
         element.submit()
     }
 
     then 'user finds new reference from home page listing', {
-        driver.getPageSource().contains("Lord of the Rings").shouldBe true
+        driver.getPageSource().contains("Allan Collins").shouldBe true
     }
 }

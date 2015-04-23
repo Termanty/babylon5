@@ -12,7 +12,7 @@
                     Title: 
                 </td>
                 <td>
-                    <input type="text" name="title" id="title"/>
+                    <input type="text" name="title" id="title" required/>
                 </td>
             </tr>
             <tr>
@@ -20,7 +20,7 @@
                     Author: 
                 </td>
                 <td>
-                    <input type="text" name="author" id="author"/>
+                    <input type="text" name="author" id="author" required/>
                 </td>
             </tr>
             <tr>
@@ -28,7 +28,7 @@
                     Booktitle: 
                 </td>
                 <td>
-                    <input type="text" name="bookTitle" id="bookTitle"/>
+                    <input type="text" name="bookTitle" id="bookTitle" required/>
                 </td>
             </tr>
             <tr>
@@ -36,7 +36,7 @@
                     Year:
                 </td>
                 <td>
-                    <input type="text" name="pubYear" id="pubYear" />
+                    <input type="text" name="pubYear" id="pubYear" required/>
                 </td>
             </tr>
             <tr>

@@ -35,6 +35,8 @@ scenario "user can fill the form and send it", {
         element.sendKeys("Lord of the Rings");
         element = driver.findElement(By.name("author"))
         element.sendKeys("J.R.R.Tolkien");
+        element = driver.findElement(By.name("publisher"))
+        element.sendKeys("WSOY");
         element = driver.findElement(By.name("pubYear"))
         element.sendKeys("1968");
         element.submit()
