@@ -97,7 +97,7 @@ public class ReferenceController {
     @RequestMapping(value = "bibtex", method = RequestMethod.GET)
     public String createBibtex(Model model) {
         List<Reference> references = referenceRepository.findAll();
-        List<String> referencesInBibtex = new ArrayList<>();
+        List<String> referencesInBibtex = new ArrayList<String>();
 
         for (Reference reference : references) {
             referencesInBibtex.add(getBibtexFormat(reference));
