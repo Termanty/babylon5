@@ -37,7 +37,7 @@
                     Year:
                 </td>
                 <td>
-                    <input type="text" name="pubYear" id="pubYear" required/>
+                    <input type="text" name="pubYear" id="pubYear" pattern=".{4,}"   required title="4 characters minimum"/>
                 </td>
             </tr>
             <tr>

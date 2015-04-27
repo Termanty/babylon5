@@ -27,7 +27,6 @@ public class IdGenerator {
         
         for(int i=1;!checkUniqueness(pubKey);i++){
            pubKey=pubKey.substring(0, 7) + i;
-            
         }
                       
         return pubKey;    

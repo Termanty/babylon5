@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
@@ -24,6 +25,7 @@ public abstract class Reference implements Serializable {
     @NotBlank
     protected String author;
     @NotBlank
+    @Length(min = 4)
     protected String pubYear;
     
     protected String note;

@@ -27,7 +27,7 @@ scenario "user can go to page where bibtex is shown", {
         element.submit()
     }
 
-    when 'folow link bibtex when references added', {
+    when 'follow link bibtex when references added', {
         element = driver.findElement(By.linkText("bibtex"))   
         element.click()
     }
