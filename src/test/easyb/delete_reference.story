@@ -2,6 +2,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import java.util.List;
 
 description 'User can delete reference from database'
 
@@ -23,12 +24,13 @@ scenario "user can go to home page ", {
     }
 
     when 'user click delete link for reference', {
-        element = driver.findElement(By.linkText("delete"))   
+        list = driver.findElements(By.linkText("delete")) 
+        element = list.get(list.size()-1);
         element.click();
                
     }
 
     then 'the number of references is correct', {
-        driver.getPageSource().contains("Number of references: 4").shouldBe true
+        driver.getPageSource().contains("Akka Kebnekaise").shouldBe false
     }
 }
