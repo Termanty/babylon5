@@ -1,17 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package ohtumini.domain;
 
 import ohtumini.repository.ReferenceRepository;
-import org.junit.After;
-import org.junit.AfterClass;
 import static org.junit.Assert.*;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.mockito.Mockito.*;
 /**
@@ -22,10 +12,8 @@ public class IdGeneratorJUnitTest {
     
     public IdGeneratorJUnitTest() {
     }
-    
-   
+
    @Test
-    
     public void checkUniquenessReturnsTrueWhenPubKeyIsUnique(){
        ReferenceRepository mockrefRepo = mock(ReferenceRepository.class); 
        IdGenerator test = new IdGenerator(mockrefRepo);

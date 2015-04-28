@@ -2,8 +2,6 @@
 package ohtumini.domain;
 
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,6 +21,7 @@ public abstract class Reference implements Serializable {
     @NotBlank
     protected String title;
     @NotBlank
+    @Length(min = 3)
     protected String author;
     @NotBlank
     @Length(min = 4)
@@ -30,7 +29,7 @@ public abstract class Reference implements Serializable {
     
     protected String note;
     protected String pubKey;
-    private String referenceType;
+    private final String referenceType;
     
     public Reference(String referenceType){
         this.referenceType = referenceType;
@@ -83,6 +82,7 @@ public abstract class Reference implements Serializable {
     public void setPubKey(String pubKey) {
         this.pubKey = pubKey;
     }
+    
     public String getReferenceType(){
         return this.referenceType;
     }

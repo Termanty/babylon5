@@ -7,8 +7,6 @@ import org.hibernate.validator.constraints.NotBlank;
 @Entity
 public class Article extends Reference {
 
-  //  private String[] orderOfFields = {"author", "title", "journal", "year", "volume", "number", "pages", "month", "note", "key"};
-    //  private String[] requiredFields = {"author", "title", "journal", "year", "volume"};
     @NotBlank
     private String journal;
     @NotBlank
@@ -74,7 +72,7 @@ public class Article extends Reference {
         allFields.put("note", this.getNote());
         allFields.put("pubkey", this.getPubKey());
         allFields.put("referencetype", this.getReferenceType());
-        allFields.put("pubmonth", this.pubMonth);
+        allFields.put("pubmonth", this.getPubMonth());
 
         BibTeXGenerator bg = new BibTeXGenerator();
 

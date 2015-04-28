@@ -21,7 +21,7 @@
                     Author: 
                 </td>
                 <td>
-                    <input type="text" name="author" id="author" required/>
+                    <input type="text" name="author" id="author" pattern=".{3,}" required title="3 characters minimum"/>
                 </td>
             </tr>
             <tr>
@@ -37,7 +37,7 @@
                     Year:
                 </td>
                 <td>
-                    <input type="text" name="pubYear" id="pubYear" pattern=".{4,}"   required title="4 characters minimum"/>
+                    <input type="text" name="pubYear" id="pubYear" pattern=".{4,}" required title="4 characters minimum"/>
                 </td>
             </tr>
             <tr>

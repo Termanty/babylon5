@@ -1,9 +1,5 @@
 package ohtumini.domain;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -16,27 +12,6 @@ public class InproceedingsTest {
     public InproceedingsTest() {
     }
 
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
-    }
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
     @Test
     public void bibtexContainsAllTheFields() {
         Inproceedings inproceedings = new Inproceedings();
@@ -71,7 +46,6 @@ public class InproceedingsTest {
         assertTrue(inproceedingsBibtex.contains("62"));
         assertTrue(inproceedingsBibtex.contains("DanceLane"));
         assertTrue(inproceedingsBibtex.contains("DancePub"));
-
 
     }
 }

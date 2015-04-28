@@ -26,8 +26,7 @@ scenario "user can go to home page ", {
     when 'user click delete link for reference', {
         list = driver.findElements(By.linkText("delete")) 
         element = list.get(list.size()-1);
-        element.click();
-               
+        element.click();  
     }
 
     then 'the number of references is correct', {

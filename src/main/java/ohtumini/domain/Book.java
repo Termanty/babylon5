@@ -78,10 +78,10 @@ public class Book extends Reference {
         allFields.put("referencetype", this.getReferenceType());
         allFields.put("edition", this.getEdition());
         allFields.put("publisher", this.getPublisher());
-        allFields.put("volume", this.volume);
-        allFields.put("series", this.series);
-        allFields.put("address", this.address);
-        allFields.put("pubmonth", this.pubMonth);
+        allFields.put("volume", this.getVolume());
+        allFields.put("series", this.getSeries());
+        allFields.put("address", this.getAddress());
+        allFields.put("pubmonth", this.getPubMonth());
 
         BibTeXGenerator bg = new BibTeXGenerator();
 

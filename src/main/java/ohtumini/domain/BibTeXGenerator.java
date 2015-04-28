@@ -24,8 +24,6 @@ public class BibTeXGenerator {
                     || nameOfField.equals("pubkey")) {
                 continue;
             }
-
-            
             sb.append(nameOfField).append(" = {").append(fixSpecialCharacters(allFields.get(nameOfField))).append("},\n");
         }
         
