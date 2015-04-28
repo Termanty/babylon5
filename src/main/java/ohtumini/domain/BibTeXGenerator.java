@@ -48,5 +48,8 @@ public class BibTeXGenerator {
         this.specialChars.put("ä", "\\\"{a}");
         this.specialChars.put("ö", "\\\"{o}");
         this.specialChars.put("å", "\\aa");
+        this.specialChars.put("Ä", "\\\"{A}");
+        this.specialChars.put("Ö", "\\\"{O}");
+        this.specialChars.put("Å", "\\AA");
     }
 }

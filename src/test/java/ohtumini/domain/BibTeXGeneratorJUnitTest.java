@@ -24,27 +24,27 @@ public class BibTeXGeneratorJUnitTest {
     public void replaceAeRight() {
         testFields.put("referencetype", "referencetype");
         testFields.put("pubkey", "id");
-        testFields.put("title", "ääkkoset");
+        testFields.put("title", "Ääkkoset");
 
-        assertEquals("@referencetype{id,\ntitle = {\\\"{a}\\\"{a}kkoset},\n}", test.generateBibtex(testFields));
+        assertEquals("@referencetype{id,\ntitle = {\\\"{A}\\\"{a}kkoset},\n}", test.generateBibtex(testFields));
     }
 
     @Test
     public void replaceOeRight() {
         testFields.put("referencetype", "referencetype");
         testFields.put("pubkey", "id");
-        testFields.put("title", "öökkoset");
+        testFields.put("title", "Öökkoset");
 
-        assertEquals("@referencetype{id,\ntitle = {\\\"{o}\\\"{o}kkoset},\n}", test.generateBibtex(testFields));
+        assertEquals("@referencetype{id,\ntitle = {\\\"{O}\\\"{o}kkoset},\n}", test.generateBibtex(testFields));
     }
 
     @Test
     public void replaceAaRight() {
         testFields.put("referencetype", "referencetype");
         testFields.put("pubkey", "id");
-        testFields.put("title", "ååkkoset");
+        testFields.put("title", "Ååkkoset");
 
-        assertEquals("@referencetype{id,\ntitle = {\\aa\\aakkoset},\n}", test.generateBibtex(testFields));
+        assertEquals("@referencetype{id,\ntitle = {\\AA\\aakkoset},\n}", test.generateBibtex(testFields));
     }
     
         @Test
