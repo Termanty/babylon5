@@ -28,4 +28,4 @@
             </nav>
 
 
-            <h1>Bibtext Reference Manager</h1>
+            <h1>Bibtex Reference Manager</h1>
