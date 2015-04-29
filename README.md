@@ -9,4 +9,6 @@ Ohtu 2015 miniprojekti
 
 [Definition of Done](https://docs.google.com/document/d/1ecCzpthguzvi-TicMrcka0hEXEDpH9oPxzIVhubx18o/)
 
+[Raportti]( https://docs.google.com/document/d/1YskMAEob8LeyuBqS1c3njNOxs5i1c81Apw1n9g4ohQw/edit?usp=sharing )
+
 [travis-logo]: https://travis-ci.org/Termanty/babylon5.svg?branch=master "Travis"
